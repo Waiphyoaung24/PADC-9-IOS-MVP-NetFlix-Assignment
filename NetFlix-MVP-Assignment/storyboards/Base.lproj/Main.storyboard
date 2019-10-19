@@ -34,7 +34,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movies" largeTitleDisplayMode="never" id="qqm-Ak-FxZ">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="Elb-bF-w8a">
-                            <view key="customView" contentMode="scaleToFill" ambiguous="YES" id="ebu-m7-Q2P">
+                            <view key="customView" contentMode="scaleToFill" id="ebu-m7-Q2P">
                                 <rect key="frame" x="20" y="5.5" width="92" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -341,21 +341,74 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Search Movies-->
         <scene sceneID="Dgs-Mz-8oZ">
             <objects>
-                <viewController id="sjq-kz-oax" sceneMemberID="viewController">
+                <viewController id="sjq-kz-oax" customClass="SearchViewController" customModule="NetFlix_MVP_Assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i4B-L5-4kd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiO-XY-mbU">
+                                <rect key="frame" x="186" y="437" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="V4T-6g-cj2">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9PC-mr-j6C">
+                                    <size key="itemSize" width="156" height="185"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieListCollectionViewCell" id="0rd-6V-v6G" customClass="MovieListCollectionViewCell" customModule="NetFlix_MVP_Assignment" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="156" height="185"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="156" height="185"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="spF-md-FOo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="156" height="185"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="spF-md-FOo" firstAttribute="top" secondItem="0rd-6V-v6G" secondAttribute="top" id="OWv-1B-qly"/>
+                                            <constraint firstAttribute="bottom" secondItem="spF-md-FOo" secondAttribute="bottom" id="Xgu-pi-XTS"/>
+                                            <constraint firstAttribute="trailing" secondItem="spF-md-FOo" secondAttribute="trailing" id="gn6-dK-jkO"/>
+                                            <constraint firstItem="spF-md-FOo" firstAttribute="leading" secondItem="0rd-6V-v6G" secondAttribute="leading" id="yYX-S1-8O0"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="ivPoster" destination="spF-md-FOo" id="L0u-Ie-OLc"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kFT-lL-GR1" firstAttribute="bottom" secondItem="V4T-6g-cj2" secondAttribute="bottom" id="2X3-pJ-nJF"/>
+                            <constraint firstItem="V4T-6g-cj2" firstAttribute="top" secondItem="kFT-lL-GR1" secondAttribute="top" id="9bf-er-hka"/>
+                            <constraint firstItem="kFT-lL-GR1" firstAttribute="trailing" secondItem="V4T-6g-cj2" secondAttribute="trailing" id="b4w-ed-iCD"/>
+                            <constraint firstItem="V4T-6g-cj2" firstAttribute="leading" secondItem="kFT-lL-GR1" secondAttribute="leading" id="v9C-kc-lbG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="kFT-lL-GR1"/>
                     </view>
-                    <navigationItem key="navigationItem" id="074-Of-biS"/>
+                    <navigationItem key="navigationItem" title="Search Movies" id="074-Of-biS"/>
+                    <connections>
+                        <outlet property="collectionViewMovieList" destination="V4T-6g-cj2" id="kH0-6o-Ite"/>
+                        <outlet property="lblMovieNotFound" destination="qiO-XY-mbU" id="lSl-Te-6Ib"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R03-ZZ-66c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2081" y="121"/>
+            <point key="canvasLocation" x="2079.7101449275365" y="120.53571428571428"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="zMm-qA-9vK">
@@ -439,6 +492,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DEZ-zM-WBX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

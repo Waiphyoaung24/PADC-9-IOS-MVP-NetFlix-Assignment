@@ -39,6 +39,14 @@ class MovieDetailViewController: UIViewController {
    
     
     var delegate : MovieDetailDelegate?
+    
+    lazy var activityIndicator : UIActivityIndicatorView = {
+        let ui = UIActivityIndicatorView()
+        ui.translatesAutoresizingMaskIntoConstraints = false
+        ui.startAnimating()
+        ui.style = UIActivityIndicatorView.Style.gray
+        return ui
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +65,11 @@ class MovieDetailViewController: UIViewController {
 
         similarcollectionView.registerForCollectionCell(strID: String(describing: SimilarMovieCollectionViewCell.self))
         
+        self.view.addSubview(activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: 0).isActive = true
+        activityIndicator.startAnimating()
+        
         
         mPresenter.onAttachView(view: self)
     
@@ -70,6 +83,7 @@ class MovieDetailViewController: UIViewController {
 }
 extension MovieDetailViewController : MovieDetailDelegate {
     func showMovieDetail(movieId: Int) {
+        self.activityIndicator.startAnimating()
         self.movieId = movieId
         mPresenter.onUIReady(movieId: movieId)
     }
@@ -82,7 +96,7 @@ extension MovieDetailViewController : MovieDetailView {
             self.ivBackground.image = image?.blurred(radius: 20)
             self.ivMovie.image = image
            self.lblMovieDetail.text = self.mPresenter.movieDetail?.overview
-            
+              self.activityIndicator.stopAnimating()
             
 
             
@@ -160,6 +174,7 @@ extension MovieDetailViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        let movieId = mPresenter.similarMovies?[indexPath.row].id ?? 0
         mPresenter.onUIReady(movieId: movieId)
+        activityIndicator.startAnimating()
     }
     
 }

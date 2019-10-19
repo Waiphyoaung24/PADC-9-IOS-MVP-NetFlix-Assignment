@@ -16,6 +16,8 @@ class MovieModelImpl : BaseModel {
 extension MovieModelImpl : MovieModel {
     
     
+    
+    
     func fetchMoviesByNameFromApi(movieName: String, success: @escaping ([MovieInfoResponse]) -> Void, fail: @escaping (String) -> Void) {
         
         SharedApiClient.shared.fetchMoviesByName(movieName: movieName, success: { (response) in
