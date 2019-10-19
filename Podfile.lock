@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (4.9.0)
+  - Cosmos (19.0.3)
+  - ReachabilitySwift (4.3.1)
+  - Realm (3.19.0):
+    - Realm/Headers (= 3.19.0)
+  - Realm/Headers (3.19.0)
+  - RealmSwift (3.19.0):
+    - Realm (= 3.19.0)
+  - SDWebImage (5.2.0):
+    - SDWebImage/Core (= 5.2.0)
+  - SDWebImage/Core (5.2.0)
+  - YoutubePlayer-in-WKWebView (0.3.3)
+
+DEPENDENCIES:
+  - Alamofire
+  - Cosmos
+  - ReachabilitySwift
+  - RealmSwift
+  - SDWebImage
+  - YoutubePlayer-in-WKWebView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Cosmos
+    - ReachabilitySwift
+    - Realm
+    - RealmSwift
+    - SDWebImage
+    - YoutubePlayer-in-WKWebView
+
+SPEC CHECKSUMS:
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
+  Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
+  Realm: 995d585bcf699aaff226715886c849a29dd3d07f
+  RealmSwift: 35f284a537989f2187b413e5917091948cb87a3f
+  SDWebImage: 609192dcf3898c910a2848032372ead951e66364
+  YoutubePlayer-in-WKWebView: 7694e858c5c3472ed067d6fe34eb9b944845e63c
+
+PODFILE CHECKSUM: a4b6083779c024b65d147d55f22b818f5e815e11
+
+COCOAPODS: 1.7.5

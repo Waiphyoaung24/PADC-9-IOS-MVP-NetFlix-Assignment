@@ -1,0 +1,6 @@
+framework module Pods_NetFlix_MVP_Assignment {
+  umbrella header "Pods-NetFlix-MVP-Assignment-umbrella.h"
+
+  export *
+  module * { export * }
+}
